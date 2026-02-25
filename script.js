@@ -198,6 +198,26 @@ function loadWebsite(url) {
 
   frame.src = proxyURL;
 }
+// intercept links clicked inside iframe
+document.addEventListener("DOMContentLoaded", () => {
+  const frame = document.getElementById("browserFrame");
+
+  frame.addEventListener("load", () => {
+    try {
+      const links = frame.contentDocument.querySelectorAll("a");
+
+      links.forEach(link => {
+        link.onclick = e => {
+          e.preventDefault();
+          loadWebsite(link.href);
+        };
+      });
+
+    } catch {
+      // cross-origin protection fallback
+    }
+  });
+});
 // ========================
 // STARTUP
 // ========================
