@@ -172,11 +172,11 @@ clear
   e.target.value = "";
 }
 
-// ========================
-// REAL WEB BROWSER
-// ========================
+/* =========================
+   REAL PROXY BROWSER
+========================= */
 
-function loadSite(e) {
+function navigate(e) {
   if (e.key !== "Enter") return;
 
   let url = e.target.value.trim();
@@ -185,9 +185,19 @@ function loadSite(e) {
     url = "https://" + url;
   }
 
-  document.getElementById("browserFrame").src = url;
+  loadWebsite(url);
 }
 
+function loadWebsite(url) {
+  const frame = document.getElementById("browserFrame");
+
+  // proxy URL
+  const proxyURL =
+    "https://api.allorigins.win/raw?url=" +
+    encodeURIComponent(url);
+
+  frame.src = proxyURL;
+}
 // ========================
 // STARTUP
 // ========================
