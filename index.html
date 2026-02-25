@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WebOS</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="desktop">
+
+  <div class="icon" onclick="openApp('terminal')">Terminal</div>
+  <div class="icon" onclick="openApp('notes')">Notes</div>
+  <div class="icon" onclick="openApp('files')">Files</div>
+  <div class="icon" onclick="openApp('browser')">Browser</div>
+
+</div>
+
+<div id="taskbar">
+  <span>WebOS v1.0</span>
+  <span id="clock"></span>
+</div>
+
+<!-- Apps -->
+
+<div class="window" id="terminal">
+  <div class="titlebar">
+    Terminal
+    <button onclick="closeApp('terminal')">X</button>
+  </div>
+  <div class="content">
+    <div id="terminalOutput"></div>
+    <input id="terminalInput" placeholder="Type command..." onkeydown="handleCommand(event)">
+  </div>
+</div>
+
+<div class="window" id="notes">
+  <div class="titlebar">
+    Notes
+    <button onclick="closeApp('notes')">X</button>
+  </div>
+  <div class="content">
+    <textarea id="noteArea" placeholder="Write something..."></textarea>
+    <button onclick="saveNote()">Save</button>
+  </div>
+</div>
+
+<div class="window" id="files">
+  <div class="titlebar">
+    Files
+    <button onclick="closeApp('files')">X</button>
+  </div>
+  <div class="content" id="fileList"></div>
+</div>
+
+<div class="window" id="browser">
+  <div class="titlebar">
+    Fake Browser
+    <button onclick="closeApp('browser')">X</button>
+  </div>
+  <div class="content">
+    <input id="fakeURL" placeholder="Enter site..." onkeydown="loadFakeSite(event)">
+    <div id="browserContent"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
