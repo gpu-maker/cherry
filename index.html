@@ -59,12 +59,12 @@
 
 <div class="window" id="browser">
   <div class="titlebar">
-    Fake Browser
+    Web Browser
     <button onclick="closeApp('browser')">X</button>
   </div>
   <div class="content">
-    <input id="fakeURL" placeholder="Enter site..." onkeydown="loadFakeSite(event)">
-    <div id="browserContent"></div>
+    <input placeholder="Enter website and press Enter" onkeydown="loadSite(event)">
+    <iframe id="browserFrame"></iframe>
   </div>
 </div>
 
